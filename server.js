@@ -19,6 +19,9 @@ const logPayload = (req, res, next) => {
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(logPayload);
 
+app.use(express.static('public'));
+app.set('view engine', 'ejs');
+
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
