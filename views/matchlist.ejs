@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Match ID</th>
+            <th>Name of players</th>
+            <th>Stage name</th>
+            <th>Comments</th>
+            <th>Round</th>
+        </tr>
+        <% for (matchId in matches) { %>
+            <tr>
+                <td><%= matchId %></td>
+                <td><%= matches[matchId].playerString %></td>
+                <td><%= matches[matchId].stage %></td>
+                <td><%= matches[matchId].comments %></td>
+                <td><%= matches[matchId].round %></td>
+                <td>    
+                <form method="POST" action="/matches/quarterfinals/<%= matchId %>?_method=PUT">
+                    <button type="submit"> ADD TO QF </button>
+                </form></td>
+            </tr>
+        <% } %>
+    </table>
+
+</body>
+</html>
